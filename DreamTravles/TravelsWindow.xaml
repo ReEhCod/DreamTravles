@@ -1,0 +1,79 @@
+﻿<Window x:Class="DreamTravles.TravelsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DreamTravles"
+        mc:Ignorable="d"
+        Title="TravelsWindow" Height="450" Width="800">
+    <Grid Background="MediumSlateBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Tools-->
+        <Label
+            Name="lblUsersName"
+            Margin="20,5,5,5"
+            Grid.ColumnSpan="2"
+            Height="50"
+            FontSize="17"
+            Foreground="White"
+            VerticalAlignment="Center"
+            />
+        <Border CornerRadius="10"  Grid.Column="5"
+            Margin="20,17"
+            BorderBrush="Black"
+            BorderThickness="3">
+            <Button Content="User" FontSize="20" ToolTip="Click to see/change your information"/>
+        </Border>
+        <Border CornerRadius="10"  Grid.Row="1"
+            Margin="20,17"
+            BorderBrush="Black"
+            BorderThickness="3">
+            <Button Content="Add Travel" FontSize="17" ToolTip="Click here to add a travel"/>
+        </Border>
+        <Border CornerRadius="10"  Grid.Row="2"
+            Margin="20,17"
+            BorderBrush="Black"
+            BorderThickness="3">
+            <Button Content="Remove" FontSize="20" ToolTip="Choose a travel and then click here to remove"/>
+        </Border>
+        <Border CornerRadius="10"  Grid.Row="3"
+            Margin="20,17"
+            BorderBrush="Black"
+            BorderThickness="3">
+            <Button Content="Details" FontSize="20" ToolTip="Choose a trip and then click here to see the details"/>
+        </Border>
+        <Border CornerRadius="10"  Grid.Row="6"
+            Margin="20,15"
+            BorderBrush="Maroon"
+            BorderThickness="3">
+            <Button Content="Sign Out" FontSize="20"/>
+        </Border>
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="4"
+            Margin="5,0,5,20"
+            Background="White"
+            />
+
+
+
+    </Grid>
+</Window>

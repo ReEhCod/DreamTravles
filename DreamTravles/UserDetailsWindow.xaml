@@ -1,0 +1,109 @@
+﻿<Window x:Class="DreamTravels.UserDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DreamTravels"
+        mc:Ignorable="d"
+        Title="UserDetailsWindow" Height="450" Width="800">
+    <Grid Background="MintCream">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Tools-->
+        <Label
+            Name="lblUsersNameAndCountry"
+            Height="55"
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Center"
+            FontSize="17"
+            />
+        <Label
+            Grid.Row="1"
+            Grid.Column="2"
+            Height="50"
+            Content="New username:"
+            VerticalAlignment="Center"
+            FontSize="17"
+            />
+        <Label
+            Grid.Row="2"
+            Grid.Column="2"
+            Height="50"
+            Content="New password:"
+            VerticalAlignment="Center"
+            FontSize="17"
+            />
+        <Label
+            Grid.Row="3"
+            Grid.Column="2"
+            Height="50"
+            Content="Confirm password:"
+            VerticalAlignment="Center"
+            FontSize="17"
+            />
+        <Label
+            Grid.Row="4"
+            Grid.Column="2"
+            Height="50"
+            Content="Country:"
+            VerticalAlignment="Center"
+            FontSize="17"
+            />
+
+        <TextBox
+            Name="tbNewUsername"
+            Grid.Row="1"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Margin="5"/>
+        <TextBox
+            Name="tbNewPassword"
+            Grid.Row="2"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Margin="5"/>
+        <TextBox
+            Name="tbConfirmPassword"
+            Grid.Row="3"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Margin="5"/>
+        <ComboBox
+            Name="cbUsersNewCountry"
+            Grid.Column="3"
+            Grid.Row="4"
+            Margin="10"
+            BorderBrush="Firebrick"
+            BorderThickness="5"
+            />
+        <Border Grid.Row="5"
+            Grid.Column="2"
+            Margin="20,15"
+            CornerRadius="10" BorderBrush="ForestGreen" BorderThickness="3">
+            <Button Name="btnSave" Content="Save" FontSize="20"/>
+        </Border>
+        <Border Grid.Row="5"
+            Grid.Column="4"
+            Margin="8,15" 
+            CornerRadius="10" BorderBrush="Firebrick" BorderThickness="3">
+            <Button Name="btnCancle" Content="Cancle" FontSize="20"/>
+        </Border>
+
+
+    </Grid>
+</Window>
