@@ -14,6 +14,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
 
 namespace DreamTravles
@@ -36,6 +37,23 @@ namespace DreamTravles
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
+            {
+                MessageBox.Show("Passwords does not match", "Warning!");
+            }
+            else if(txtPassword.Text.Trim().Length < 5)
+            {
+                MessageBox.Show("Password shoud be longer than 5 characters", "Warning!");
+            }
+            else if (txtUsername.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("Username is too short. It shoud be longer than 3 characters!", "Warning!");
+            }
+            else if (txtUsername.Text.Trim().Length < 0 && txtPassword.Text.Trim().Length < 0 && string.IsNullOrEmpty(cbCountry.Text))
+            {
+                MessageBox.Show("Not all the requierd fields are full", "Warning!");
+            }
+            
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             string location = cbCountry.SelectedItem.ToString();
@@ -44,12 +62,14 @@ namespace DreamTravles
             if(this.userManager.AddUser(username,password,selectedCountry))
             {
                 // Användare har skapats
-
+                MainWindow mainWindow = new(this.userManager);
+                mainWindow.Show();
                 Close();
+                
             }
             else
             {
-                MessageBox.Show("The username was invalid or already taken!");
+                MessageBox.Show("The username is invalid or already taken!");
             }
         }
     }

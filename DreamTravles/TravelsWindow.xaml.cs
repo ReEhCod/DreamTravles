@@ -23,7 +23,7 @@ namespace DreamTravles
     public partial class TravelsWindow : Window
     {
         private Admin admin;
-        private Client client = new();
+        private Client client;
         public TravelsWindow(UserManager userManager, IUser user)
         {
             InitializeComponent();

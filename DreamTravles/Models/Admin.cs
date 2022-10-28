@@ -15,9 +15,9 @@ namespace DreamTravels.Models
         public Countries Location { get; set; }
 
 
-        public Admin(string userame, string password, Countries location)
+        public Admin(string username, string password, Countries location)
         {
-            Username = Username;
+            Username = username;
             Password = password;
             Location = location;
         }

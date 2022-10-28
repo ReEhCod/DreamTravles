@@ -23,10 +23,18 @@ namespace DreamTravles
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserManager userManager = new();
+        private UserManager userManager;
         public MainWindow()
         {
             InitializeComponent();
+
+            userManager = new();
+        }
+        public MainWindow(UserManager userManager)
+        {
+            InitializeComponent();
+
+            this.userManager = userManager;
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
