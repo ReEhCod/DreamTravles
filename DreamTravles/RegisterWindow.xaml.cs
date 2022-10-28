@@ -44,8 +44,8 @@ namespace DreamTravles
             if(this.userManager.AddUser(username,password,selectedCountry))
             {
                 // Användare har skapats
-                Close();
 
+                Close();
             }
             else
             {

@@ -16,7 +16,7 @@ namespace DreamTravels.Managers
 
         public UserManager()
         {
-            Admin admin = new Admin("admin", "password");
+            Admin admin = new Admin("admin", "password", Enums.Countries.Sweden);
 
             Client client = new Client("Gandalf","password", Enums.Countries.Afghanistan);
 
