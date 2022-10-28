@@ -37,6 +37,11 @@ namespace DreamTravles
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            string location = cbCountry.SelectedItem.ToString();
+            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), location);
+
             if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
             {
                 MessageBox.Show("Passwords does not match", "Warning!");
@@ -53,24 +58,15 @@ namespace DreamTravles
             {
                 MessageBox.Show("Not all the requierd fields are full", "Warning!");
             }
-            
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
-            string location = cbCountry.SelectedItem.ToString();
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), location);
-            
-            if(this.userManager.AddUser(username,password,selectedCountry))
+            else if (this.userManager.AddUser(username, password, selectedCountry))
             {
                 // Användare har skapats
                 MainWindow mainWindow = new(this.userManager);
                 mainWindow.Show();
                 Close();
-                
+
             }
-            else
-            {
-                MessageBox.Show("The username is invalid or already taken!");
-            }
+            
         }
     }
 }

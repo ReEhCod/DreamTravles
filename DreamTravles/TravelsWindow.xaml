@@ -36,33 +36,33 @@
             />
         <Border CornerRadius="10"  Grid.Column="5"
             Margin="20,17"
-            BorderBrush="Black"
+            BorderBrush="Green"
             BorderThickness="3">
-            <Button Content="User" FontSize="20" ToolTip="Click to see/change your information"/>
+            <Button x:Name="btnUser" Content="User" FontSize="20" ToolTip="Click to see/change your information" Click="btnUser_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="1"
             Margin="20,17"
-            BorderBrush="Black"
+            BorderBrush="Gray"
             BorderThickness="3">
-            <Button Content="Add Travel" FontSize="17" ToolTip="Click here to add a travel"/>
+            <Button x:Name="btnAddTravel" Content="Add Travel" FontSize="17" ToolTip="Click here to add a travel" Click="btnAddTravel_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="2"
             Margin="20,17"
-            BorderBrush="Black"
+            BorderBrush="Gray"
             BorderThickness="3">
-            <Button Content="Remove" FontSize="20" ToolTip="Choose a travel and then click here to remove"/>
+            <Button x:Name="btnRemoveTravel" Content="Remove" FontSize="20" ToolTip="Choose a travel and then click here to remove" Click="btnRemoveTravel_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="3"
             Margin="20,17"
-            BorderBrush="Black"
+            BorderBrush="Gray"
             BorderThickness="3">
-            <Button Content="Details" FontSize="20" ToolTip="Choose a trip and then click here to see the details"/>
+            <Button x:Name="btnDetails" Content="Details" FontSize="20" ToolTip="Choose a trip and then click here to see the details" Click="btnDetails_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="6"
             Margin="20,15"
             BorderBrush="Maroon"
-            BorderThickness="3">
-            <Button Content="Sign Out" FontSize="20"/>
+            BorderThickness="2">
+            <Button x:Name="btnSignOut" Content="Sign Out" FontSize="20" Click="btnSignOut_Click"/>
         </Border>
         <Label
             Grid.Row="1"

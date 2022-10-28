@@ -27,6 +27,32 @@ namespace DreamTravles
         public TravelsWindow(UserManager userManager, IUser user)
         {
             InitializeComponent();
+            lblUsersName.Content = $"{user.Username} / Location: {user.Location}";
+        }
+
+        private void btnAddTravel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDetails_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSignOut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUser_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
