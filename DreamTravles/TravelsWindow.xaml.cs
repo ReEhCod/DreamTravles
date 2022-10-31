@@ -1,4 +1,6 @@
-﻿using DreamTravels.Interfaces;
+﻿using DreamTravels;
+using DreamTravels.Enums;
+using DreamTravels.Interfaces;
 using DreamTravels.Managers;
 using DreamTravels.Models;
 using System;
@@ -24,15 +26,23 @@ namespace DreamTravles
     {
         private Admin admin;
         private Client client;
-        public TravelsWindow(UserManager userManager, IUser user)
+        private UserManager userManager;
+        private TravelManager travelManager;
+            
+        public TravelsWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
-            lblUsersName.Content = $"{user.Username} / Location: {user.Location}";
+            lblUsersName.Content = $"{userManager.SignedInUser.Username}";
+
+            this.userManager = userManager;
+            this.travelManager = travelManager;
         }
 
         private void btnAddTravel_Click(object sender, RoutedEventArgs e)
         {
-
+            AddTravelWindow addTravelWindow = new(userManager, travelManager);
+            addTravelWindow.Show();
+            Close();
         }
 
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
@@ -42,17 +52,23 @@ namespace DreamTravles
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-
+            TravelDetailsWindow travelDetailsWindow = new TravelDetailsWindow(userManager, travelManager);
+            travelDetailsWindow.Show();
+            Close();
         }
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new(userManager, travelManager);
+            mainWindow.Show();
+            Close();
         }
 
         private void btnUser_Click(object sender, RoutedEventArgs e)
         {
-
+            UserDetailsWindow userDetailsWindow = new(userManager, travelManager);
+            userDetailsWindow.Show();
+            Close();
         }
     }
 }

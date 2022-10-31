@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DreamTravels.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,14 @@ namespace DreamTravels
     /// </summary>
     public partial class AddTravelWindow : Window
     {
-        public AddTravelWindow()
+        private readonly UserManager userManager;
+        private readonly TravelManager travelManager;
+
+        public AddTravelWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
+            this.userManager = userManager;
+            this.travelManager = travelManager;
         }
     }
 }

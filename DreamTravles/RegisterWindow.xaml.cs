@@ -24,11 +24,13 @@ namespace DreamTravles
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        private UserManager userManager = new();
-        public RegisterWindow(UserManager userManager)
+        private UserManager userManager;
+        private TravelManager travelManager;
+        public RegisterWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
             this.userManager = userManager;
+            this.travelManager = travelManager;
 
             cbCountry.ItemsSource = Enum.GetValues(typeof(Countries));
 
@@ -61,7 +63,7 @@ namespace DreamTravles
             else if (this.userManager.AddUser(username, password, selectedCountry))
             {
                 // Användare har skapats
-                MainWindow mainWindow = new(this.userManager);
+                MainWindow mainWindow = new(this.userManager, travelManager);
                 mainWindow.Show();
                 Close();
 

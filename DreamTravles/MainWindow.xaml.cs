@@ -1,6 +1,7 @@
 ﻿using DreamTravels.Enums;
 using DreamTravels.Interfaces;
 using DreamTravels.Managers;
+using DreamTravels.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,22 +25,42 @@ namespace DreamTravles
     public partial class MainWindow : Window
     {
         private UserManager userManager;
+        private TravelManager travelManager;
         public MainWindow()
         {
             InitializeComponent();
 
             userManager = new();
+            travelManager = new();
+
+            // Skapa resor för Gandalf
+
+            Travel newTrip = travelManager.AddTravel("Ice hotel", 4, Countries.Sweden, TripeTypes.Leisure);
+            Travel newVacation = travelManager.AddTravel("Barcelona", 2, Countries.Spain, false);
+
+            for (int i = 0; i < userManager.users.Count; i++)
+            {
+                if (userManager.users[i].Username == "Gandalf")
+                {
+                    Client client = userManager.users[i] as Client;
+
+                    client.Travels.Add(newTrip);
+                    client.Travels.Add(newVacation);
+                }
+            }
         }
-        public MainWindow(UserManager userManager)
+
+        public MainWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
 
             this.userManager = userManager;
+            this.travelManager = travelManager;
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow registerWindow = new(userManager);
+            RegisterWindow registerWindow = new(userManager, travelManager);
             registerWindow.Show();
             Close();
 
@@ -57,7 +78,10 @@ namespace DreamTravles
                 if(user.Username == usernam && user.Password == password)
                 {
                     isFoundUser = true;
-                    TravelsWindow travelsWindow = new(userManager, user);
+
+                    userManager.SignedInUser = user;
+
+                    TravelsWindow travelsWindow = new(userManager, travelManager);
                     travelsWindow.Show();
                 }
             }

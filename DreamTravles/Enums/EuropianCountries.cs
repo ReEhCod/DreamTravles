@@ -32,12 +32,14 @@ namespace DreamTravels.Enums
         Luxembourg,
         Malta,
         Netherlands,
+        Norway,
         Poland,
         Portugal,
         Romania,
         Slovakia,
         Slovenia,
         Spain,
-        Sweden
+        Sweden,
+        Switzerland
     }
 }

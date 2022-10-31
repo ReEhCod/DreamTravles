@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DreamTravels.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,10 @@ namespace DreamTravels.Models
     {
         public bool AllInclusive { get; set; }
 
-        //public void Vacation(allInclusive)
-        //{
-
-        //}
+        public Vacation(string destination, Countries country, int travelers, bool allInclusive) : base(destination, country, travelers)
+        {
+            AllInclusive = allInclusive;
+        }
         public override string GetInfo()
         {
             return "";

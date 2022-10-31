@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DreamTravels.Interfaces;
+using DreamTravels.Managers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,15 @@ namespace DreamTravels
     /// </summary>
     public partial class UserDetailsWindow : Window
     {
-        public UserDetailsWindow()
+        private readonly UserManager userManager;
+        private readonly TravelManager travelManager;
+
+        public UserDetailsWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
+            lblUsersNameAndCountry.Content = $"{userManager.SignedInUser.Username} / Location: {userManager.SignedInUser.Location}";
+            this.userManager = userManager;
+            this.travelManager = travelManager;
         }
-
-
     }
 }

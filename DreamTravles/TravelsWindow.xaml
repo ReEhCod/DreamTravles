@@ -36,7 +36,7 @@
             />
         <Border CornerRadius="10"  Grid.Column="5"
             Margin="20,17"
-            BorderBrush="Green"
+            BorderBrush="Gray"
             BorderThickness="3">
             <Button x:Name="btnUser" Content="User" FontSize="20" ToolTip="Click to see/change your information" Click="btnUser_Click"/>
         </Border>

@@ -10,15 +10,14 @@ namespace DreamTravels.Models
     public class Trip : Travel
     {
         public TripeTypes Type { get; set; }
-
-        //public void Trip(type)
-        //{
-            
-        //}
+        public Trip(string destination, Countries country, int travelers, TripeTypes tripType) : base(destination, country, travelers)
+        {
+            this.Type = tripType;
+        }
 
         public override string GetInfo()
         {
-            return "";
+            return $"{Type}";
         }
 
     }
