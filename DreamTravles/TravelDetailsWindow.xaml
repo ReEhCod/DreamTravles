@@ -27,18 +27,24 @@
         <Label
             Grid.Column="2"
             Grid.ColumnSpan="2"
-            Content="The details of the travel"
+            Content="Details of the travel"
+            FontFamily="Arial"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="20"/>
-        <Label
-            Name="lblTravelDetails"
+        <ListView
+            Name="lvTravelDetails"
             Grid.Row="1"
-            Grid.Column="2"
-            Grid.ColumnSpan="3"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
             Grid.RowSpan="5"
             Margin="5,5,5,20"
-            Background="White"
             />
+        <Border CornerRadius="10"
+            Margin="20,15"
+            BorderBrush="Gray"
+            BorderThickness="2">
+            <Button x:Name="btnLeave" Content="Leave" FontSize="20" ToolTip="Click here to go back to TravelWindow" Click="btnLeave_Click"/>
+        </Border>
     </Grid>
 </Window>

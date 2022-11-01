@@ -13,6 +13,7 @@ namespace DreamTravels.Interfaces
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public Countries Location { get; set; }        
+        public Countries Location { get; set; }
+        bool IsAdmin { get; }
     }
 }

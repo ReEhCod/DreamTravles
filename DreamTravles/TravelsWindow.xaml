@@ -40,6 +40,12 @@
             BorderThickness="3">
             <Button x:Name="btnUser" Content="User" FontSize="20" ToolTip="Click to see/change your information" Click="btnUser_Click"/>
         </Border>
+        <Border CornerRadius="10"  Grid.Column="5" Grid.Row="5"
+            Margin="20,17"
+            BorderBrush="Gray"
+            BorderThickness="3">
+            <Button x:Name="btnInfo" Content="Info" FontSize="20" ToolTip="Click for more informaion!" Click="btnInfo_Click"/>
+        </Border>
         <Border CornerRadius="10"  Grid.Row="1"
             Margin="20,17"
             BorderBrush="Gray"
@@ -56,7 +62,7 @@
             Margin="20,17"
             BorderBrush="Gray"
             BorderThickness="3">
-            <Button x:Name="btnDetails" Content="Details" FontSize="20" ToolTip="Choose a trip and then click here to see the details" Click="btnDetails_Click"/>
+            <Button x:Name="btnDetails" Content="Details" FontSize="20" ToolTip="Choose a travel and then click here to see the details" Click="btnDetails_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="6"
             Margin="20,15"
@@ -64,7 +70,8 @@
             BorderThickness="2">
             <Button x:Name="btnSignOut" Content="Sign Out" FontSize="20" Click="btnSignOut_Click"/>
         </Border>
-        <Label
+        <ListView
+            Name="lvTravels"
             Grid.Row="1"
             Grid.Column="1"
             Grid.RowSpan="5"

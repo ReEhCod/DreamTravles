@@ -21,6 +21,7 @@ namespace DreamTravels.Models
             Travelers = travelers;
         }
 
+
         public virtual string GetInfo()
         {
             return $"Destination:{Destination} / Country:{Country} / Travelesrs:{Travelers}";

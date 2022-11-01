@@ -28,14 +28,48 @@ namespace DreamTravles
         private Client client;
         private UserManager userManager;
         private TravelManager travelManager;
+        private List<IUser> users;
+        private List<Travel> travels;
             
         public TravelsWindow(UserManager userManager, TravelManager travelManager)
         {
+
             InitializeComponent();
             lblUsersName.Content = $"{userManager.SignedInUser.Username}";
-
+            
             this.userManager = userManager;
             this.travelManager = travelManager;
+            TravelInfo();
+        }
+        private void TravelInfo()
+        {
+            if (userManager.SignedInUser is Client)
+            {
+                Client signedInUser = userManager.SignedInUser as Client;
+
+                foreach (Travel travel in signedInUser.Travels)
+                {
+                    ListViewItem item = new();
+                    item.Tag = travel;
+                    item.Content = travel.Country;
+                    lvTravels.Items.Add(item);
+                }
+            }
+            else if (userManager.SignedInUser is Admin)
+            {
+                var nonAdminUsers = userManager.GetAllUsers().Where(x => x.IsAdmin != true);
+
+                foreach (Client user in nonAdminUsers)
+                {
+                    foreach (Travel travel in user.Travels)
+                    {
+                        ListViewItem item = new();
+                        item.Tag = travel;
+                        item.Content = travel.Country;
+                        lvTravels.Items.Add(item);
+                    }
+                }
+            }
         }
 
         private void btnAddTravel_Click(object sender, RoutedEventArgs e)
@@ -45,16 +79,36 @@ namespace DreamTravles
             Close();
         }
 
+        // Button to remove selected travel form the list
         private void btnRemoveTravel_Click(object sender, RoutedEventArgs e)
         {
+            if (lvTravels.SelectedItem == null)
+            {
+                MessageBox.Show("Please choose a travel first");
+            }
+            else
+            {
+                ListViewItem selectedItem = lvTravels.SelectedItem as ListViewItem;
+                Travel selectedTravel = selectedItem.Tag as Travel;
+
+                travelManager.RemoveTravel(selectedTravel);
+            }
+
 
         }
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-            TravelDetailsWindow travelDetailsWindow = new TravelDetailsWindow(userManager, travelManager);
-            travelDetailsWindow.Show();
-            Close();
+            if (lvTravels.SelectedItem == null)
+            {
+                MessageBox.Show("Please choose a travel first");
+            }
+            else
+            {
+                TravelDetailsWindow travelDetailsWindow = new TravelDetailsWindow(userManager, travelManager, );
+                travelDetailsWindow.Show();
+                Close();
+            }
         }
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
@@ -70,5 +124,26 @@ namespace DreamTravles
             userDetailsWindow.Show();
             Close();
         }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hi and welcome to Dream Travels!Dream Travel is established in 2022 in Sweden.Our vision is to give you your dream travels and the best experience.\nYou can choose between our many countries and destinations to travel to.\nIf you need help you can hold your mouse on each button to know what it does.");
+        }
+
+        //private void lvTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (lvTravels.SelectedItem == null)
+        //    {
+        //        MessageBox.Show("Please choose a travel first");
+        //    }
+        //    else if (lvTravels.SelectedItem != null)
+        //    {
+        //        btnDetails.IsEnabled = true;
+        //        btnRemoveTravel.IsEnabled = true;
+        //    }
+            
+            
+        //}
+
     }
 }

@@ -14,7 +14,7 @@ namespace DreamTravels.Models
         public string Password { get; set; }
         public Countries Location { get; set; }
         public List<Travel> Travels { get; set; } = new();
-
+        public bool IsAdmin { get; set; }
 
         public Client(string userame, string password, Countries location)
         {

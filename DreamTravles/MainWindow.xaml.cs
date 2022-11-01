@@ -33,8 +33,13 @@ namespace DreamTravles
             userManager = new();
             travelManager = new();
 
-            // Skapa resor för Gandalf
 
+            // Skapa resor för Gandalf
+            AddTravelForGandalf();
+        }
+
+        public void AddTravelForGandalf()
+        {
             Travel newTrip = travelManager.AddTravel("Ice hotel", 4, Countries.Sweden, TripeTypes.Leisure);
             Travel newVacation = travelManager.AddTravel("Barcelona", 2, Countries.Spain, false);
 
@@ -49,7 +54,6 @@ namespace DreamTravles
                 }
             }
         }
-
         public MainWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
@@ -83,13 +87,16 @@ namespace DreamTravles
 
                     TravelsWindow travelsWindow = new(userManager, travelManager);
                     travelsWindow.Show();
+                    Close();
                 }
+                
             }
+            
             if (!isFoundUser)
             {
                 MessageBox.Show("Username or password is incorrect", "Warning");
             }
-            Close();
+            
         }
     }
 }

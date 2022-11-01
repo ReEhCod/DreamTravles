@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DreamTravels.Managers
 {
@@ -32,9 +33,32 @@ namespace DreamTravels.Managers
             return vacation;
         }
 
-        public void RemoveTravel()
+        public void RemoveTravel(Travel travelToRemove)
         {
+            try
+            {
+                Travel foundTravel = null;
+                foreach (Travel travel in travels)
+                {
+                    if (travel.Country == travelToRemove.Country)
+                    {
+                        foundTravel = travel;
+                    }
+                }
+                if (foundTravel != null)
+                {
+                    travels.Remove(foundTravel);
+                }
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Please choose a travel first", "Warning");
+            }
 
+                //if (foundTravel is null)
+                //{
+                //throw new ArgumentNullException("Please choose a travel first", "Warning");
+                //}
         }
     }
 }

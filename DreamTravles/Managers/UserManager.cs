@@ -19,7 +19,7 @@ namespace DreamTravels.Managers
         {
             Admin admin = new Admin("admin", "password", Enums.Countries.Sweden);
 
-            Client client = new Client("Gandalf", "password", Enums.Countries.Denmark);
+            Client client = new Client("Gandalf", "password", Enums.Countries.Norway);
 
             users.Add(client);
             users.Add(admin);
