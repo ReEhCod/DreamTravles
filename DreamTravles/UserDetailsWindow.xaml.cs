@@ -1,5 +1,6 @@
 ﻿using DreamTravels.Interfaces;
 using DreamTravels.Managers;
+using DreamTravles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,18 @@ namespace DreamTravels
             lblUsersNameAndCountry.Content = $"{userManager.SignedInUser.Username} / Location: {userManager.SignedInUser.Location}";
             this.userManager = userManager;
             this.travelManager = travelManager;
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCancle_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(userManager, travelManager);
+            travelsWindow.Show();
+            Close();
         }
     }
 }

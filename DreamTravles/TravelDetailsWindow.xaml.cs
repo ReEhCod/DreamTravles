@@ -31,46 +31,8 @@ namespace DreamTravels
             InitializeComponent();
             this.userManager = userManager;
             this.travelManager = travelManager;
-   
-            foreach (Travel travel in travels)
-            {
-                if (travel.Country == selectedTravel.Country)
-                {
-                    ListViewItem item = new();
-                    item.Tag = travel;
-                    item.Content = travel.GetInfo();
-                    lvTravelDetails.Items.Add(item);
-                }
-                
-            }
 
-            //if (userManager.SignedInUser is Client)
-            //{
-            //    Client signedInUser = userManager.SignedInUser as Client;
-
-            //    foreach (Travel travel in signedInUser.Travels)
-            //    {
-            //        ListViewItem item = new();
-            //        item.Tag = travel;
-            //        item.Content = travel.GetInfo();
-            //        lvTravelDetails.Items.Add(item);
-            //    }
-            //}
-            //else if (userManager.SignedInUser is Admin)
-            //{
-            //    var nonAdminUsers = userManager.GetAllUsers().Where(x => x.IsAdmin != true);
-
-            //    foreach (Client user in nonAdminUsers)
-            //    {
-            //        foreach (Travel travel in user.Travels)
-            //        {
-            //            ListViewItem item = new();
-            //            item.Tag = travel;
-            //            item.Content = travel.GetInfo();
-            //            lvTravelDetails.Items.Add(item);
-            //        }
-            //    }
-            //}
+            lvTravelDetails.Items.Add(selectedTravel.GetInfo());
         }
 
         private void btnLeave_Click(object sender, RoutedEventArgs e)

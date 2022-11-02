@@ -17,7 +17,7 @@ namespace DreamTravels.Models
 
         public override string GetInfo()
         {
-            return $"Destination:{Destination} / Country:{Country} / Travelesrs:{Travelers} Type:{Type}";
+            return $"Destination: {Destination}\nCountry: {Country}\nTravelesrs: {Travelers}\nType: {Type}";
         }
 
     }

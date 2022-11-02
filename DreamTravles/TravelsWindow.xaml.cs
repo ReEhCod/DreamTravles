@@ -57,17 +57,12 @@ namespace DreamTravles
             }
             else if (userManager.SignedInUser is Admin)
             {
-                var nonAdminUsers = userManager.GetAllUsers().Where(x => x.IsAdmin != true);
-
-                foreach (Client user in nonAdminUsers)
+                foreach (Travel travel in travelManager.travels)
                 {
-                    foreach (Travel travel in user.Travels)
-                    {
-                        ListViewItem item = new();
-                        item.Tag = travel;
-                        item.Content = travel.Country;
-                        lvTravels.Items.Add(item);
-                    }
+                    ListViewItem item = new();
+                    item.Tag = travel;
+                    item.Content = travel.Country;
+                    lvTravels.Items.Add(item);
                 }
             }
         }
@@ -99,13 +94,17 @@ namespace DreamTravles
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-            if (lvTravels.SelectedItem == null)
+            ListViewItem selectedItem = lvTravels.SelectedItem as ListViewItem;
+
+            if (selectedItem == null)
             {
                 MessageBox.Show("Please choose a travel first");
             }
             else
             {
-                TravelDetailsWindow travelDetailsWindow = new TravelDetailsWindow(userManager, travelManager, );
+                Travel selectedTravel = selectedItem.Tag as Travel; 
+
+                TravelDetailsWindow travelDetailsWindow = new TravelDetailsWindow(userManager, travelManager, selectedTravel);
                 travelDetailsWindow.Show();
                 Close();
             }
@@ -127,23 +126,8 @@ namespace DreamTravles
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hi and welcome to Dream Travels!Dream Travel is established in 2022 in Sweden.Our vision is to give you your dream travels and the best experience.\nYou can choose between our many countries and destinations to travel to.\nIf you need help you can hold your mouse on each button to know what it does.");
+            MessageBox.Show("Hi and welcome to Dream Travels! Dream Travel is established in 2022 in Sweden.Our vision is to give you your dream travels and the best experience.\nYou can choose between our many countries and destinations to travel to.\nIf you need help you can hold your mouse on each button to know what it does.");
         }
-
-        //private void lvTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (lvTravels.SelectedItem == null)
-        //    {
-        //        MessageBox.Show("Please choose a travel first");
-        //    }
-        //    else if (lvTravels.SelectedItem != null)
-        //    {
-        //        btnDetails.IsEnabled = true;
-        //        btnRemoveTravel.IsEnabled = true;
-        //    }
-            
-            
-        //}
 
     }
 }

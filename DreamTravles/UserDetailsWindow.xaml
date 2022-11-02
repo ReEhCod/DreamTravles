@@ -95,13 +95,13 @@
             Grid.Column="2"
             Margin="20,15"
             CornerRadius="10" BorderBrush="ForestGreen" BorderThickness="3">
-            <Button Name="btnSave" Content="Save" FontSize="20"/>
+            <Button Name="btnSave" Content="Save" FontSize="20" Click="btnSave_Click"/>
         </Border>
         <Border Grid.Row="5"
             Grid.Column="4"
             Margin="8,15" 
             CornerRadius="10" BorderBrush="Firebrick" BorderThickness="3">
-            <Button Name="btnCancle" Content="Cancle" FontSize="20"/>
+            <Button Name="btnCancle" Content="Cancle" FontSize="20" Click="btnCancle_Click"/>
         </Border>
 
 
