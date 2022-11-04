@@ -32,54 +32,54 @@ namespace DreamTravles
             this.userManager = userManager;
             this.travelManager = travelManager;
 
-            cbCountry.ItemsSource = Enum.GetValues(typeof(Countries));
-
-
+            cbCountry.ItemsSource = Enum.GetNames(typeof(Countries));
         }
 
+        // Registers new account for client
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            string location = cbCountry.SelectedItem.ToString();
+            string location = cbCountry.SelectedItem as string;
 
-            if (txtUsername.Text.Trim().Length < 0 && txtPassword.Text.Trim().Length < 0 && cbCountry.SelectedItem == null)
-            {
-                MessageBox.Show("Not all the requierd fields are full", "Warning!");
-            }
-            else if (txtUsername.Text.Trim().Length < 3)
-            {
-                MessageBox.Show("Username is too short. It shoud be longer than 3 characters!", "Warning!");
-            }
-            else if (txtPassword.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("Password shoud be longer than 5 characters", "Warning!");
-            }
-            else if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
-            {
-                MessageBox.Show("Passwords does not match", "Warning!");
-            }
-            else
-            {
-                try
+            try
+            {               
+                if (txtUsername.Text.Trim().Length < 0 && txtPassword.Text.Trim().Length < 0 && cbCountry.SelectedItem == null)
                 {
-                    
+                    MessageBox.Show("Not all the requierd fields are full", "Warning!");
+                    return;
+                }
+                else if (txtUsername.Text.Trim().Length < 3)
+                {
+                    MessageBox.Show("Username is too short. It shoud be longer than 3 characters!", "Warning!");
+                    return;
+                }
+                else if (txtPassword.Text.Trim().Length < 5)
+                {
+                    MessageBox.Show("Password shoud be longer than 5 characters", "Warning!");
+                    return;
+                }
+                else if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
+                {
+                    MessageBox.Show("Password does not match", "Warning!");
+                    return;
+                }
+                else
+                {
                     Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), location);
                     this.userManager.AddUser(username, password, selectedCountry);
-                    // Användare har skapats
                     MainWindow mainWindow = new(this.userManager, travelManager);
                     mainWindow.Show();
                     Close();
-
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Please fill all the required fields", "Warning");
-                    return;
-                }
+                } 
             }
-
-            
+            catch (Exception)
+            {
+                MessageBox.Show("Please fill all the required fields", "Warning");
+                return;
+            }
         }
     }
 }
+    
+

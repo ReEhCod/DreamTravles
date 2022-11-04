@@ -26,7 +26,7 @@ namespace DreamTravels.Managers
         }
        
 
-
+        // Adds the user to the app
         public bool AddUser(string username, string password, Countries location)
         {
             if(ValidateUsername(username))
@@ -41,11 +41,13 @@ namespace DreamTravels.Managers
             return false;
         }
 
+        // Returns all users
         public List<IUser> GetAllUsers()
         {
             return users;
         }
 
+        // Updates the specific users information
         public void UppdateUser(IUser userToUpdate, string newUsername, string newPassword, Countries newLocation)
         {
             int userIndex = users.FindIndex(user => user.Username.Equals(userToUpdate.Username));
@@ -60,6 +62,8 @@ namespace DreamTravels.Managers
             users[userIndex2].Location = newLocation;
             SignedInUser.Location = newLocation;
         }
+
+        // It checks if the username already exist in the system
         private bool ValidateUsername(string usernameToValidate)
         {
             // Loopa igenom alla users
@@ -79,9 +83,6 @@ namespace DreamTravels.Managers
             // Om användarnamnet är ledigt - returnera true
             return true;
         }
-        //public bool signinuser(username, password)
-        //{
 
-        //}
     }
 }

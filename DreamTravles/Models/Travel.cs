@@ -21,10 +21,12 @@ namespace DreamTravels.Models
             Travelers = travelers;
         }
 
-
+        // Gets the travels' info exccept trip and vaccation
         public virtual string GetInfo()
         {
             return $"Destination:{Destination} / Country:{Country} / Travelesrs:{Travelers}";
         }
+
+       
     }
 }

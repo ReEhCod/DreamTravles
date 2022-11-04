@@ -15,6 +15,8 @@ namespace DreamTravels.Models
         {
             AllInclusive = allInclusive;
         }
+
+        // Gets travel information if it's a vaccation
         public override string GetInfo()
         {
             return $"Destination: {Destination}\nCountry: {Country}\nTravelesrs: {Travelers}\nAll inclusive: {AllInclusive}";

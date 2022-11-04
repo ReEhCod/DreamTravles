@@ -13,7 +13,8 @@ namespace DreamTravels.Managers
     {
         public List<Travel> travels = new();
 
-        // Används för att skapa trips
+
+        // Adds a travel if it's a trip
         public Travel AddTravel(string destination, int travellers, Countries country, TripeTypes tripType)
         {
             Trip trip = new(destination, country, travellers, tripType);
@@ -23,11 +24,13 @@ namespace DreamTravels.Managers
             return trip;
         }
 
+        // Returns all travels 
         public List<Travel> GetAllTravels()
         {
             return travels;
         }
-        // Används för att skapa vacations
+
+        // Adds a travel if it's vacations
         public Travel AddTravel(string destination, int travellers, Countries country, bool allInclusive)
         {
             Vacation vacation = new(destination, country, travellers, allInclusive);
@@ -37,6 +40,7 @@ namespace DreamTravels.Managers
             return vacation;
         }
 
+        // Removes the choosen travel 
         public void RemoveTravel(Travel travelToRemove)
         {
             try

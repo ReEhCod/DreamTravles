@@ -33,11 +33,10 @@ namespace DreamTravles
             userManager = new();
             travelManager = new();
 
-
-            // Skapa resor för Gandalf
             AddTravelForGandalf();
         }
 
+        // Adding travels for a default user by default
         public void AddTravelForGandalf()
         {
             Travel newTrip = travelManager.AddTravel("Ice hotel", 4, Countries.Sweden, TripeTypes.Leisure);
@@ -62,6 +61,7 @@ namespace DreamTravles
             this.travelManager = travelManager;
         }
 
+        // Sends the client to register window 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new(userManager, travelManager);
@@ -70,6 +70,7 @@ namespace DreamTravles
 
         }
 
+        // Signs in the user into app
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
 

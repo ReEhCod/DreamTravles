@@ -44,6 +44,7 @@ namespace DreamTravels
 
         }
 
+        // Adds new travel for the client 
         private void btnAddTravel_Click(object sender, RoutedEventArgs e)
         {
             string country = cbCountry.SelectedItem as string;
@@ -102,6 +103,7 @@ namespace DreamTravels
 
         }
 
+        // Changes the selection depending on if it's trip or vaccation
         private void cbTypeOfTravel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItem = cbTypeOfTravel.SelectedItem as string;
@@ -130,6 +132,7 @@ namespace DreamTravels
             }
         }
 
+        // Let the user leave the page and go back to travelsWindow
         private void btnLeave_Click(object sender, RoutedEventArgs e)
         {
             TravelsWindow travelsWindow = new(userManager, travelManager);

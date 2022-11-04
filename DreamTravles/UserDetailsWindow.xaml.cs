@@ -35,12 +35,11 @@ namespace DreamTravels
             this.userManager = userManager;
             this.travelManager = travelManager;
             IUser user = userManager.SignedInUser;
-            //IUser user = userManager.SignedInUser;
-            //lblUsersNameAndCountry.Content = user.Username;
 
             cbUsersNewCountry.ItemsSource = Enum.GetNames(typeof(Countries));
             cbUsersNewCountry.SelectedItem = cbUsersNewCountry.Items.IndexOf(user.Location);
         }
+
         // The button saves the inputs and uppdates the user's information
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {

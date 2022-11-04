@@ -24,12 +24,8 @@ namespace DreamTravles
     /// </summary>
     public partial class TravelsWindow : Window
     {
-        private Admin admin;
-        private Client client;
-        private Travel newTravel;
         private UserManager userManager;
         private TravelManager travelManager;
-        private List<Travel> travels;
             
         public TravelsWindow(UserManager userManager, TravelManager travelManager)
         {
@@ -41,6 +37,7 @@ namespace DreamTravles
             this.travelManager = travelManager;
             TravelInfo();
 
+            // If user is admin hidden the buttons: AddTravel, User, Info
             if (userManager.SignedInUser is Admin)
             {
                 btnAddTravel.Visibility = Visibility.Hidden;
@@ -71,6 +68,7 @@ namespace DreamTravles
             {
                 foreach (Travel travel in travelManager.travels)
                 {
+                    
                     ListViewItem item = new();
                     item.Tag = travel;
                     item.Content = travel.Country;

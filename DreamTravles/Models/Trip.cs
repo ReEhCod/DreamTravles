@@ -15,6 +15,7 @@ namespace DreamTravels.Models
             this.Type = tripType;
         }
 
+        // Gets the travel information if it's a trip
         public override string GetInfo()
         {
             return $"Destination: {Destination}\nCountry: {Country}\nTravelesrs: {Travelers}\nType: {Type}";

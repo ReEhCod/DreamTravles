@@ -24,7 +24,6 @@ namespace DreamTravels
     {
         private readonly UserManager userManager;
         private readonly TravelManager travelManager;
-        private readonly List<Travel> travels;
 
         public TravelDetailsWindow(UserManager userManager, TravelManager travelManager, Travel selectedTravel)
         {
