@@ -79,6 +79,14 @@ namespace DreamTravles
                 return;
             }
         }
+
+        // Cancels the register and sends back user to main window
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new(userManager, travelManager);
+            mainWindow.Show();
+            Close();
+        }
     }
 }
     

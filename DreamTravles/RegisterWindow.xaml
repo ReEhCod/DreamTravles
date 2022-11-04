@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamTravles"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="800">
+        Title="RegisterWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
     <Grid Background="MediumSlateBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -96,6 +96,15 @@
             Margin="10 0"
             Click="btnRegister_Click"
             ToolTip="Click to register"/>
+        <Button
+            x:Name="btnExit"
+            Grid.Row="5"
+            Grid.Column="5"
+            Content="Exit"
+            Height="30"
+            Margin="10 0"
+            Click="btnExit_Click"
+            ToolTip="Click to go back to main window"/>
 
     </Grid>
 </Window>

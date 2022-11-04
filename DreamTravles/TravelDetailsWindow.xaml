@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamTravels"
         mc:Ignorable="d"
-        Title="TravelDetailsWindow" Height="450" Width="800">
+        Title="TravelDetailsWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True">
     <Grid Background="MintCream">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -42,6 +42,8 @@
             />
         <Border CornerRadius="10"
             Margin="20,15"
+                Grid.Column="5"
+                Grid.Row="5"
             BorderBrush="DarkRed"
             BorderThickness="2">
             <Button x:Name="btnLeave" Content="Leave" FontSize="20" Background ="DarkRed" Foreground="White" ToolTip="Click here to go back to the last window" Click="btnLeave_Click"/>
