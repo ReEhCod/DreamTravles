@@ -106,21 +106,33 @@
             Grid.Row="2"
             Grid.Column="1"
             VerticalContentAlignment="Center"
-            Margin="0,10,5,10"/>
+            Margin="0,15,5,15"/>
         <TextBox
             x:Name="txtTravelers"
             Grid.Row="3"
             Grid.Column="1"
             VerticalContentAlignment="Center"
-            Margin="0,10,5,10"/>
+            Margin="0,15,5,15"/>
         <Button
             x:Name="btnAddTravel"
             Grid.Column="0"
             Grid.Row="6"
             Content="Add Travel" 
-            Margin="10"
+            Margin="10,15"
             FontSize="20"
             FontWeight="Bold"
-            Click="btnAddTravel_Click"/>
+            Click="btnAddTravel_Click"
+            Background="DarkGreen"
+            Foreground="White"/>
+        <Button
+            x:Name="btnLeave"
+            Grid.Column="5"
+            Content="Leave" 
+            Margin="10,15"
+            FontSize="20"
+            FontWeight="Bold"
+            Click="btnLeave_Click"
+            Background="DarkRed"
+            Foreground="White"/>
     </Grid>
 </Window>

@@ -42,32 +42,43 @@ namespace DreamTravles
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             string location = cbCountry.SelectedItem.ToString();
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), location);
 
-            if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
+            if (txtUsername.Text.Trim().Length < 0 && txtPassword.Text.Trim().Length < 0 && cbCountry.SelectedItem == null)
             {
-                MessageBox.Show("Passwords does not match", "Warning!");
-            }
-            else if(txtPassword.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("Password shoud be longer than 5 characters", "Warning!");
+                MessageBox.Show("Not all the requierd fields are full", "Warning!");
             }
             else if (txtUsername.Text.Trim().Length < 3)
             {
                 MessageBox.Show("Username is too short. It shoud be longer than 3 characters!", "Warning!");
             }
-            else if (txtUsername.Text.Trim().Length < 0 && txtPassword.Text.Trim().Length < 0 && string.IsNullOrEmpty(cbCountry.Text))
+            else if (txtPassword.Text.Trim().Length < 5)
             {
-                MessageBox.Show("Not all the requierd fields are full", "Warning!");
+                MessageBox.Show("Password shoud be longer than 5 characters", "Warning!");
             }
-            else if (this.userManager.AddUser(username, password, selectedCountry))
+            else if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
             {
-                // Användare har skapats
-                MainWindow mainWindow = new(this.userManager, travelManager);
-                mainWindow.Show();
-                Close();
+                MessageBox.Show("Passwords does not match", "Warning!");
+            }
+            else
+            {
+                try
+                {
+                    
+                    Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), location);
+                    this.userManager.AddUser(username, password, selectedCountry);
+                    // Användare har skapats
+                    MainWindow mainWindow = new(this.userManager, travelManager);
+                    mainWindow.Show();
+                    Close();
 
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Please fill all the required fields", "Warning");
+                    return;
+                }
             }
+
             
         }
     }

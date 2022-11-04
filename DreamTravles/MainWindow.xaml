@@ -67,7 +67,8 @@
             Content="Register"
             Height="30"
             Margin="10 0"
-            Click="btnRegister_Click"/>
+            Click="btnRegister_Click"
+            ToolTip="If you dont have an account, click here to register"/>
         <Button 
             x:Name="btnSignIn"
             Grid.Row="4"
@@ -75,6 +76,7 @@
             Content="Sign In"
             Height="30"
             Margin="10 0"
-            Click="btnSignIn_Click"/>
+            Click="btnSignIn_Click"
+            ToolTip="Fill all information above and then click to sign in"/>
     </Grid>
 </Window>

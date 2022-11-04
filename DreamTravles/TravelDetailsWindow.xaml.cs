@@ -35,6 +35,7 @@ namespace DreamTravels
             lvTravelDetails.Items.Add(selectedTravel.GetInfo());
         }
 
+        // Cancle the process and send user back to TravelsWindow
         private void btnLeave_Click(object sender, RoutedEventArgs e)
         {
             TravelsWindow travelsWindow = new(userManager,travelManager);

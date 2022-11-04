@@ -45,14 +45,21 @@ namespace DreamTravels.Managers
         {
             return users;
         }
-        //public void RemoveUser(IUser)
-        //{
 
-        //}
-        //public bool UppdateUsername(string IUser)
-        //{
+        public void UppdateUser(IUser userToUpdate, string newUsername, string newPassword, Countries newLocation)
+        {
+            int userIndex = users.FindIndex(user => user.Username.Equals(userToUpdate.Username));
+            users[userIndex].Username = newUsername;
+            SignedInUser.Username = newUsername;
 
-        //}
+            int userIndex1 = users.FindIndex(user => user.Password.Equals(userToUpdate.Password));
+            users[userIndex1].Password = newPassword;
+            SignedInUser.Password = newPassword;
+
+            int userIndex2 = users.FindIndex(user => user.Location.Equals(userToUpdate.Location));
+            users[userIndex2].Location = newLocation;
+            SignedInUser.Location = newLocation;
+        }
         private bool ValidateUsername(string usernameToValidate)
         {
             // Loopa igenom alla users
@@ -72,7 +79,7 @@ namespace DreamTravels.Managers
             // Om användarnamnet är ledigt - returnera true
             return true;
         }
-        //public bool SignInUser(username, password)
+        //public bool signinuser(username, password)
         //{
 
         //}

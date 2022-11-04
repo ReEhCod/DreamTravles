@@ -94,7 +94,8 @@
             Content="Register"
             Height="30"
             Margin="10 0"
-            Click="btnRegister_Click"/>
+            Click="btnRegister_Click"
+            ToolTip="Click to register"/>
 
     </Grid>
 </Window>

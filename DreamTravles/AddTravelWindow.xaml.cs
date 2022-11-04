@@ -47,26 +47,27 @@ namespace DreamTravels
         private void btnAddTravel_Click(object sender, RoutedEventArgs e)
         {
             string country = cbCountry.SelectedItem as string;
-            
-
             string destination = txtDestination.Text;
             string travelers = txtTravelers.Text;
             string typeOfTravel = cbTypeOfTravel.SelectedItem as string;
-
-
-            if (cbCountry.SelectedItem == null || cbTypeOfTravel.SelectedItem == null || cbTripType.SelectedItem == null || ckbAllInclusive.IsChecked == null || txtDestination.Text == null || txtTravelers.Text == null)
-            {
-                MessageBox.Show("Please fill all the required fields", "Warning!");
-                return;
-            }
 
             try
             {
                 Countries enumCountry = (Countries)Enum.Parse(typeof(Countries), country);
                 int intTravelers = int.Parse(travelers);
-
+                
+                if(cbTypeOfTravel.SelectedItem == null)
+                {
+                    MessageBox.Show("Please fill all the required fields", "Warning!");
+                    return;
+                }
                 if (typeOfTravel == "Trip")
                 {
+                    if (cbCountry.SelectedItem == null || cbTripType.SelectedItem == null || txtDestination.Text == null || txtTravelers.Text == null)
+                    {
+                        MessageBox.Show("Please fill all the required fields", "Warning!");
+                        return;
+                    }
                     string tripType = cbTripType.SelectedItem as string;
                     TripeTypes enumTripType = (TripeTypes)Enum.Parse(typeof(TripeTypes), tripType);
 
@@ -77,6 +78,11 @@ namespace DreamTravels
                 }
                 else if(typeOfTravel == "Vacation")
                 {
+                    if (cbCountry.SelectedItem == null || txtDestination.Text == null || txtTravelers.Text == null)
+                    {
+                        MessageBox.Show("Please fill all the required fields", "Warning!");
+                        return;
+                    }
                     isAllInclusive = (bool)ckbAllInclusive.IsChecked;
 
                     Travel newTravel = travelManager.AddTravel(destination, intTravelers, enumCountry, isAllInclusive);
@@ -122,6 +128,13 @@ namespace DreamTravels
                         break;
                     }
             }
-        }   
+        }
+
+        private void btnLeave_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(userManager, travelManager);
+            travelsWindow.Show();
+            Close();
+        }
     }
 }

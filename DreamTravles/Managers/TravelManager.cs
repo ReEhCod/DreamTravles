@@ -23,6 +23,10 @@ namespace DreamTravels.Managers
             return trip;
         }
 
+        public List<Travel> GetAllTravels()
+        {
+            return travels;
+        }
         // Används för att skapa vacations
         public Travel AddTravel(string destination, int travellers, Countries country, bool allInclusive)
         {
@@ -40,7 +44,7 @@ namespace DreamTravels.Managers
                 Travel foundTravel = null;
                 foreach (Travel travel in travels)
                 {
-                    if (travel.Country == travelToRemove.Country)
+                    if (travel.Country == travelToRemove.Country && travel.Destination == travelToRemove.Destination && travel.Travelers == travelToRemove.Travelers)
                     {
                         foundTravel = travel;
                     }
@@ -54,11 +58,6 @@ namespace DreamTravels.Managers
             {
                 MessageBox.Show("Please choose a travel first", "Warning");
             }
-
-                //if (foundTravel is null)
-                //{
-                //throw new ArgumentNullException("Please choose a travel first", "Warning");
-                //}
         }
     }
 }

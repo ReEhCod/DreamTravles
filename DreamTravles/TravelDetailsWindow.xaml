@@ -42,9 +42,9 @@
             />
         <Border CornerRadius="10"
             Margin="20,15"
-            BorderBrush="Gray"
+            BorderBrush="DarkRed"
             BorderThickness="2">
-            <Button x:Name="btnLeave" Content="Leave" FontSize="20" ToolTip="Click here to go back to TravelWindow" Click="btnLeave_Click"/>
+            <Button x:Name="btnLeave" Content="Leave" FontSize="20" Background ="DarkRed" Foreground="White" ToolTip="Click here to go back to the last window" Click="btnLeave_Click"/>
         </Border>
     </Grid>
 </Window>

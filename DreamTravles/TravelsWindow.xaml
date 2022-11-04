@@ -36,19 +36,19 @@
             />
         <Border CornerRadius="10"  Grid.Column="5"
             Margin="20,17"
-            BorderBrush="Gray"
+            BorderBrush="MediumSlateBlue"
             BorderThickness="3">
             <Button x:Name="btnUser" Content="User" FontSize="20" ToolTip="Click to see/change your information" Click="btnUser_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Column="5" Grid.Row="5"
             Margin="20,17"
-            BorderBrush="Gray"
+            BorderBrush="MediumSlateBlue"
             BorderThickness="3">
-            <Button x:Name="btnInfo" Content="Info" FontSize="20" ToolTip="Click for more informaion!" Click="btnInfo_Click"/>
+            <Button x:Name="btnInfo" Content="Info" FontSize="20" Background ="DarkGreen" Foreground="White" ToolTip="Click for more informaion!" Click="btnInfo_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="1"
             Margin="20,17"
-            BorderBrush="Gray"
+            BorderBrush="MediumSlateBlue"
             BorderThickness="3">
             <Button x:Name="btnAddTravel" Content="Add Travel" FontSize="17" ToolTip="Click here to add a travel" Click="btnAddTravel_Click"/>
         </Border>
@@ -56,7 +56,7 @@
             Margin="20,17"
             BorderBrush="Gray"
             BorderThickness="3">
-            <Button x:Name="btnRemoveTravel" Content="Remove" FontSize="20" ToolTip="Choose a travel and then click here to remove" Click="btnRemoveTravel_Click"/>
+            <Button x:Name="btnRemoveTravel" Content="Remove" FontSize="20" ToolTip="Choose a travel and then click here to remove it" Click="btnRemoveTravel_Click"/>
         </Border>
         <Border CornerRadius="10"  Grid.Row="3"
             Margin="20,17"
@@ -68,7 +68,7 @@
             Margin="20,15"
             BorderBrush="Maroon"
             BorderThickness="2">
-            <Button x:Name="btnSignOut" Content="Sign Out" FontSize="20" Click="btnSignOut_Click"/>
+            <Button x:Name="btnSignOut" Content="Sign Out" FontSize="20" Background ="DarkRed" Foreground="White" Click="btnSignOut_Click" ToolTip="Click to sing out from your account"/>
         </Border>
         <ListView
             Name="lvTravels"
